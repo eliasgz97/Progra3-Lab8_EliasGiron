@@ -24,9 +24,9 @@ Pieza ***llenado()
 void imprimir(Pieza ***tablero)
 {
     int filas = 8, columnas = 8;
-    for (int i = 0; i < filas; i++)
+    for (int i = 1; i < 8; i++)
     {
-        for (int j = 0; j < columnas; j++)
+        for (int j = 1; j < 8; j++)
         {
             cout << '[' << tablero[i][j]->getnombre() << ']';
         }
@@ -110,10 +110,11 @@ int main()
                     //imprimir(tablero);
                     cout << "Jugador 1, ingrese su coordenada: " << endl;
                     cin >> coordenada;
-                    x_pieza = ((int)coordenada[1] - 49) * (-1) + 8;
-                    y_pieza = (coordenada[2] - 48) * (-1) + 8;
-                    x_movimiento = ((int)coordenada[4] - 49) * (-1) + 8;
-                    y_movimiento = (coordenada[5] - 48) * (-1) + 8;
+                    x_pieza = (((int)coordenada[1] - 49) *(-1)) - 97;
+                    cout << x_pieza;
+                    y_pieza = ((coordenada[2] - 48) * (-1)) - 97;
+                    x_movimiento = (((int)coordenada[4] - 49) * (-1)) - 97;
+                    y_movimiento = ((coordenada[5] - 48) * (-1)) - 97;
                     if (!tablero[x_pieza][y_pieza]->validarMovimiento(x_pieza, y_pieza, x_movimiento, y_movimiento))
                     {
                         cout << "Movimiento invalido: " << endl;
@@ -129,13 +130,13 @@ int main()
                 }
                 while (negro)
                 {
-                    imprimir(tablero);
+                    //imprimir(tablero);
                     cout << "Jugador 2, ingrese su coordenada: " << endl;
                     cin >> coordenada;
-                    x_pieza = ((int)coordenada[1] - 49) * (-1) + 8;
-                    y_pieza = (coordenada[2] - 48) * (-1) + 8;
-                    x_movimiento = ((int)coordenada[4] - 49) * (-1) + 8;
-                    y_movimiento = (coordenada[5] - 48) * (-1) + 8;
+                    x_pieza = (((int)coordenada[1] - 49) * (-1)) - 97;
+                    y_pieza = ((coordenada[2] - 48) * (-1)) - 97;
+                    x_movimiento = (((int)coordenada[4] - 49) * (-1)) - 97;
+                    y_movimiento = ((coordenada[5] - 48) * (-1)) + 8;
                     if (!tablero[x_pieza][y_pieza]->validarMovimiento(x_pieza, y_pieza, x_movimiento, y_movimiento))
                     {
                         cout << "Movimiento invalido: " << endl;
